@@ -1,0 +1,26 @@
+{
+    "sourceFile": "tagalong/src/App.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1735844890822,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1735844912897,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,8 @@\n import viteLogo from '/vite.svg'\n import './App.css'\n \n function App() {\n-  const [count, setCount] = useState(0)\n \n   return (\n     <>\n       Hello World!\n"
+                },
+                {
+                    "date": 1735844918258,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,4 @@\n-import { useState } from 'react'\n-import reactLogo from './assets/react.svg'\n-import viteLogo from '/vite.svg'\n import './App.css'\n \n function App() {\n \n"
+                }
+            ],
+            "date": 1735844890822,
+            "name": "Commit-0",
+            "content": "import { useState } from 'react'\nimport reactLogo from './assets/react.svg'\nimport viteLogo from '/vite.svg'\nimport './App.css'\n\nfunction App() {\n  const [count, setCount] = useState(0)\n\n  return (\n    <>\n      Hello World!\n    </>\n  )\n}\n\nexport default App\n"
+        }
+    ]
+}
