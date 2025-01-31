@@ -14,12 +14,14 @@ export async function getGroqChatCompletion(content) {
   });
 }
 
-export async function GET(request) {
+export default async function handler(req, res) {
     try {
-        const chatCompletion = await getGroqChatCompletion(request);
-        return new Response(chatCompletion.choices[0]?.message?.content || "");
+        const { content } = req.body;
+        const chatCompletion = await getGroqChatCompletion(content);
+        return res.json({ message: chatCompletion.choices[0]?.message?.content || "No response" });
     } catch (error) {
-        console.error("Error getting Groq completion:", error);
+        console.error('Error getting Groq completion:', error);
+        res.status(500).send({ error: 'Failed to get Groq completion' });
     }
     
   }
