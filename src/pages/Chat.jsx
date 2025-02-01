@@ -17,8 +17,19 @@ export default function Chat() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-    
+
         setMessages((prevMessages) => [...prevMessages, { text: userInput, type: "user" }]);
+
+        try {
+            const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/chat`, { 
+                content:  "You are an expert/fluent in tagalog and you are now a tutor. Using your expertise please help with any questions. Please be clear but concise" + userInput,});
+            setMessages((prevMessages) => [...prevMessages, { text: res.data.message, type: "bot" }]);
+            console.log(res.data.message);
+        }
+        catch (error) {
+            console.error("Error fetching Groq response:", error.response.data);
+            setMessages((prevMessages) => [...prevMessages, { text: "An error occurred", type: "bot" }]);
+        }
 
         e.target.reset();
       };
