@@ -22,7 +22,9 @@ export default function Chat() {
 
         try {
             const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/chat`, { 
-                content:  "You are an expert/fluent in tagalog and you are now a tutor. Using your expertise please help with any questions. Please be clear but concise" + userInput,});
+                content:  "You are an expert/fluent in tagalog and you are now a tutor. Using your expertise please help with any questions. Please be clear but concise" + userInput,
+                }, { 
+                headers: { "Content-Type": "application/json" } });
             setMessages((prevMessages) => [...prevMessages, { text: res.data.message, type: "bot" }]);
             console.log(res.data.message);
         }

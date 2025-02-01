@@ -21,7 +21,7 @@ export default async function handler(req, res) {
         return res.json({ message: chatCompletion.choices[0]?.message?.content || "No response" });
     } catch (error) {
         console.error('Error getting Groq completion:', error);
-        res.status(500).send({ error: 'Failed to get Groq completion' });
+        res.status(500).send({ error: 'Failed to get Groq completion' + error});
     }
     
   }
