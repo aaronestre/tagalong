@@ -15,18 +15,26 @@ export default function ChatMessages({ messages }) {
             >
                 {messages.map((msg, index) =>
                     msg.type === "bot" ? (
-                        <Text
-                            key={index}
-                            p="5px 20px"
-                            ta="left"
-                            lh="2"
-                            style={{
-                                color: "#fff",
-                                margin: "5px 0",
-                            }}
-                        >
-                            {msg.text}
-                        </Text>
+                        <div key={index}>
+                            <Text
+                                p="5px 20px"
+                                ta="left"
+                                lh="2"
+                                gradient={{ from: "orange", to: "red", deg: 270 }}
+                                mb="-10px"
+                                variant="gradient"
+                            >
+                                Tutor
+                            </Text>
+                            <Text
+                                p="5px 20px"
+                                ta="left"
+                                lh="2"
+                                c="fff"
+                            >
+                                {msg.text}
+                            </Text>
+                        </div>
                     ) : (
                         <Paper
                             key={index}
@@ -35,9 +43,9 @@ export default function ChatMessages({ messages }) {
                             shadow="lg"
                             radius="lg"
                             bg="#007bff"
+                            c="fff"
                             style={{
                                 alignSelf: "flex-end",
-                                color: "#fff",
                                 maxWidth: "450px",
                             }}
                         >
