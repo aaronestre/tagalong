@@ -1,0 +1,22 @@
+{
+    "sourceFile": "src/App.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1738393878652,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1738393885507,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n \r\n // Import custom components\r\n import Header from \"./components/common/Header.jsx\";\r\n import Navbar from \"./components/common/Navbar.jsx\";\r\n-import RouterSwitcher from \"./components/RouterSwitcher.jsx\";\r\n+import RouterSwitcher from \"./components/common/RouterSwitcher.jsx\";\r\n function App() {\r\n   const [opened, {toggle}] = useDisclosure();\r\n \r\n   return (\r\n"
+                }
+            ],
+            "date": 1738393878652,
+            "name": "Commit-0",
+            "content": "import { React , useState } from \"react\";\r\n\r\n// Import libary components\r\nimport { useDisclosure } from \"@mantine/hooks\";\r\nimport { AppShell } from \"@mantine/core\";\r\n\r\n\r\n// Import custom components\r\nimport Header from \"./components/common/Header.jsx\";\r\nimport Navbar from \"./components/common/Navbar.jsx\";\r\nimport RouterSwitcher from \"./components/RouterSwitcher.jsx\";\r\nfunction App() {\r\n  const [opened, {toggle}] = useDisclosure();\r\n\r\n  return (\r\n    <>\r\n      <AppShell header={{height:\"60\"}} navbar={{width:\"300\", breakpoint:\"sm\", collapsed:{mobile: !opened}}} padding=\"md\">\r\n        <Header opened={opened} toggle={toggle}/>\r\n        <Navbar/>\r\n        <AppShell.Main>\r\n          <RouterSwitcher/>\r\n        </AppShell.Main>\r\n      </AppShell> \r\n      \r\n    </>\r\n  );\r\n}\r\n\r\nexport default App;"
+        }
+    ]
+}

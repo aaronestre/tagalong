@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/components/common/Button.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1738391023190,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1738391043189,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import React from \"react\";\r\n import { Button } from \"@mantine/core\";\r\n import { IconBrandTelegram } from '@tabler/icons-react';\r\n \r\n-export default function Button() {\r\n+export default function Button({icon}) {\r\n   return (\r\n     <>\r\n       <Button\r\n         size=\"md\"\r\n"
+                },
+                {
+                    "date": 1738391056549,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import React from \"react\";\r\n import { Button } from \"@mantine/core\";\r\n import { IconBrandTelegram } from '@tabler/icons-react';\r\n \r\n-export default function Button({icon}) {\r\n+export default function Button() {\r\n   return (\r\n     <>\r\n       <Button\r\n         size=\"md\"\r\n"
+                }
+            ],
+            "date": 1738391023190,
+            "name": "Commit-0",
+            "content": "import React from \"react\";\r\nimport { Button } from \"@mantine/core\";\r\nimport { IconBrandTelegram } from '@tabler/icons-react';\r\n\r\nexport default function Button() {\r\n  return (\r\n    <>\r\n      <Button\r\n        size=\"md\"\r\n        variant=\"gradient\"\r\n        gradient={{ from: \"orange\", to: \"red\", deg: 270 }}\r\n        radius=\"xl\"\r\n        type=\"submit\"\r\n        fullWidth\r\n      >\r\n        <IconBrandTelegram />\r\n      </Button>\r\n    </>\r\n  );\r\n}"
+        }
+    ]
+}

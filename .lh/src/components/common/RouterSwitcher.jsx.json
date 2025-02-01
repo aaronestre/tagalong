@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/components/common/RouterSwitcher.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1738390945245,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1738390945245,
+            "name": "Commit-0",
+            "content": "import React from \"react\";\r\nimport {Route, Routes} from \"react-router-dom\";\r\nimport NotFound from \"../../pages/NotFound.jsx\";\r\nimport Chat from \"../../pages/Chat.jsx\";\r\nimport Vocab from \"../../pages/Vocab.jsx\";\r\nimport Home from \"../../pages/Home.jsx\";\r\n\r\nfunction RouterSwitcher() {\r\n  return (\r\n    <>\r\n      <Routes>\r\n        <Route path=\"/\" element={<Home />} />\r\n        <Route path=\"/*\" element={<NotFound />} />\r\n        <Route path=\"/chat\" element={<Chat />} />\r\n        <Route path=\"/vocab\" element={<Vocab />} />\r\n      </Routes>\r\n    </>\r\n  );\r\n}\r\nexport default RouterSwitcher;"
+        }
+    ]
+}

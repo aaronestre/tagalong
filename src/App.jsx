@@ -6,9 +6,9 @@ import { AppShell } from "@mantine/core";
 
 
 // Import custom components
-import Header from "./components/Header.jsx";
-import Navbar from "./components/Navbar.jsx";
-import RouterSwitcher from "./components/RouterSwitcher.jsx";
+import Header from "./components/common/Header.jsx";
+import Navbar from "./components/common/Navbar.jsx";
+import RouterSwitcher from "./components/common/RouterSwitcher.jsx";
 function App() {
   const [opened, {toggle}] = useDisclosure();
 
