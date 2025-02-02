@@ -1,9 +1,9 @@
 import React from "react";
-import { Paper, Text, ScrollArea } from "@mantine/core";
+import { Paper, Text, ScrollArea, Loader } from "@mantine/core";
 
-export default function ChatMessages({ messages }) {
+export default function ChatMessages({ messages, loading }) {
     return (
-        <ScrollArea h="100%">
+        <ScrollArea h="100%" type="scroll">
             <div
                 style={{
                     flex: 1,
@@ -15,6 +15,7 @@ export default function ChatMessages({ messages }) {
             >
                 {messages.map((msg, index) =>
                     msg.type === "bot" ? (
+                    
                         <div key={index}>
                             <Text
                                 p="5px 20px"
@@ -54,6 +55,11 @@ export default function ChatMessages({ messages }) {
                             </Text>
                         </Paper>
                     )
+                )}
+                {loading && (
+                    <div style={{ alignSelf: "flex-start", paddingLeft: "20px", marginTop: "-10px" }}>
+                        <Loader type="dots" size="sm" color="orange" />
+                    </div>
                 )}
             </div>
         </ScrollArea>

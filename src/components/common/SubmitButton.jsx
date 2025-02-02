@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from "@mantine/core";
 import { IconBrandTelegram } from "@tabler/icons-react";
 
-export default function SubmitButton() {
+export default function SubmitButton({disabled, content}) {
     return (
         <>
             <Button
@@ -12,8 +12,9 @@ export default function SubmitButton() {
                 radius="xl"
                 type="submit"
                 fullWidth
+                disabled={disabled}
             >
-                <IconBrandTelegram />
+                <IconBrandTelegram/>
             </Button>
         </>
     );

@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 65,
+            "activePatchIndex": 78,
             "patches": [
                 {
                     "date": 1738392412943,
@@ -268,6 +268,58 @@
                 {
                     "date": 1738398182487,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,10 @@\n                                 p=\"5px 20px\"\r\n                                 ta=\"left\"\r\n                                 lh=\"2\"\r\n                                 gradient={{ from: \"orange\", to: \"red\", deg: 270 }}\r\n-                                mb=\"-20px\"\r\n+                                mb=\"-10px\"\r\n+                                variant=\"gradient\"\r\n                             >\r\n                                 Tutor\r\n                             </Text>\r\n                             <Text\r\n"
+                },
+                {
+                    "date": 1738446212500,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n import React from \"react\";\r\n import { Paper, Text, ScrollArea } from \"@mantine/core\";\r\n \r\n-export default function ChatMessages({ messages }) {\r\n+export default function ChatMessages({ messages, loading }) {\r\n     return (\r\n         <ScrollArea h=\"100%\">\r\n             <div\r\n                 style={{\r\n"
+                },
+                {
+                    "date": 1738459935735,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import React from \"react\";\r\n-import { Paper, Text, ScrollArea } from \"@mantine/core\";\r\n+import { Paper, Text, ScrollArea, Loader } from \"@mantine/core\";\r\n \r\n export default function ChatMessages({ messages, loading }) {\r\n     return (\r\n         <ScrollArea h=\"100%\">\r\n@@ -14,8 +14,9 @@\n                 }}\r\n             >\r\n                 {messages.map((msg, index) =>\r\n                     msg.type === \"bot\" ? (\r\n+                    \r\n                         <div key={index}>\r\n                             <Text\r\n                                 p=\"5px 20px\"\r\n                                 ta=\"left\"\r\n"
+                },
+                {
+                    "date": 1738460066200,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -55,8 +55,13 @@\n                             </Text>\r\n                         </Paper>\r\n                     )\r\n                 )}\r\n+                {loading && (\r\n+                    <div style={{ alignSelf: \"flex-start\", paddingLeft: \"20px\" }}>\r\n+                        <Loader size=\"sm\" color=\"orange\" />\r\n+                    </div>\r\n+                )}\r\n             </div>\r\n         </ScrollArea>\r\n     );\r\n }\r\n"
+                },
+                {
+                    "date": 1738460102976,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -57,9 +57,10 @@\n                     )\r\n                 )}\r\n                 {loading && (\r\n                     <div style={{ alignSelf: \"flex-start\", paddingLeft: \"20px\" }}>\r\n-                        <Loader size=\"sm\" color=\"orange\" />\r\n+                        \r\n+                        <Loader type=\"dots\" size=\"sm\" color=\"orange\" />\r\n                     </div>\r\n                 )}\r\n             </div>\r\n         </ScrollArea>\r\n"
+                },
+                {
+                    "date": 1738460111060,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -57,9 +57,9 @@\n                     )\r\n                 )}\r\n                 {loading && (\r\n                     <div style={{ alignSelf: \"flex-start\", paddingLeft: \"20px\" }}>\r\n-                        \r\n+                        <Text>Tutor is thinking</Text>\r\n                         <Loader type=\"dots\" size=\"sm\" color=\"orange\" />\r\n                     </div>\r\n                 )}\r\n             </div>\r\n"
+                },
+                {
+                    "date": 1738460161244,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -56,9 +56,9 @@\n                         </Paper>\r\n                     )\r\n                 )}\r\n                 {loading && (\r\n-                    <div style={{ alignSelf: \"flex-start\", paddingLeft: \"20px\" }}>\r\n+                    <div pl=\"20px\" display=\"inline\">\r\n                         <Text>Tutor is thinking</Text>\r\n                         <Loader type=\"dots\" size=\"sm\" color=\"orange\" />\r\n                     </div>\r\n                 )}\r\n"
+                },
+                {
+                    "date": 1738460188957,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -57,9 +57,9 @@\n                     )\r\n                 )}\r\n                 {loading && (\r\n                     <div pl=\"20px\" display=\"inline\">\r\n-                        <Text>Tutor is thinking</Text>\r\n+                        <Text display=\"inline\">Tutor is thinking</Text>\r\n                         <Loader type=\"dots\" size=\"sm\" color=\"orange\" />\r\n                     </div>\r\n                 )}\r\n             </div>\r\n"
+                },
+                {
+                    "date": 1738460223358,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -57,9 +57,8 @@\n                     )\r\n                 )}\r\n                 {loading && (\r\n                     <div pl=\"20px\" display=\"inline\">\r\n-                        <Text display=\"inline\">Tutor is thinking</Text>\r\n                         <Loader type=\"dots\" size=\"sm\" color=\"orange\" />\r\n                     </div>\r\n                 )}\r\n             </div>\r\n"
+                },
+                {
+                    "date": 1738460699883,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -56,9 +56,9 @@\n                         </Paper>\r\n                     )\r\n                 )}\r\n                 {loading && (\r\n-                    <div pl=\"20px\" display=\"inline\">\r\n+                    <div pl=\"20px\">\r\n                         <Loader type=\"dots\" size=\"sm\" color=\"orange\" />\r\n                     </div>\r\n                 )}\r\n             </div>\r\n"
+                },
+                {
+                    "date": 1738460722251,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -56,9 +56,9 @@\n                         </Paper>\r\n                     )\r\n                 )}\r\n                 {loading && (\r\n-                    <div pl=\"20px\">\r\n+                    <div>\r\n                         <Loader type=\"dots\" size=\"sm\" color=\"orange\" />\r\n                     </div>\r\n                 )}\r\n             </div>\r\n"
+                },
+                {
+                    "date": 1738460787219,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -56,11 +56,9 @@\n                         </Paper>\r\n                     )\r\n                 )}\r\n                 {loading && (\r\n-                    <div>\r\n-                        <Loader type=\"dots\" size=\"sm\" color=\"orange\" />\r\n-                    </div>\r\n+                    <Loader type=\"dots\" size=\"sm\" color=\"orange\" />\r\n                 )}\r\n             </div>\r\n         </ScrollArea>\r\n     );\r\n"
+                },
+                {
+                    "date": 1738460854543,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -56,9 +56,11 @@\n                         </Paper>\r\n                     )\r\n                 )}\r\n                 {loading && (\r\n-                    <Loader type=\"dots\" size=\"sm\" color=\"orange\" />\r\n+                    <div style={{ alignSelf: \"flex-start\", paddingLeft: \"20px\", marginTop: \"-10px\" }}>\r\n+                        <Loader type=\"dots\" size=\"sm\" color=\"orange\" />\r\n+                    </div>\r\n                 )}\r\n             </div>\r\n         </ScrollArea>\r\n     );\r\n"
+                },
+                {
+                    "date": 1738461010932,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n import { Paper, Text, ScrollArea, Loader } from \"@mantine/core\";\r\n \r\n export default function ChatMessages({ messages, loading }) {\r\n     return (\r\n-        <ScrollArea h=\"100%\">\r\n+        <ScrollArea h=\"100%\" type=\"scroll\">\r\n             <div\r\n                 style={{\r\n                     flex: 1,\r\n                     display: \"flex\",\r\n"
                 }
             ],
             "date": 1738392412943,

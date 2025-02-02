@@ -3,11 +3,19 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 2,
             "patches": [
                 {
                     "date": 1738400328541,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1738400489457,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,6 +11,14 @@\n           \"headers\": [\r\n             { \"key\": \"Access-Control-Allow-Origin\", \"value\": \"*\" }\r\n           ]\r\n         }  \r\n-    ]\r\n+    ],\r\n+    \"functions\": {\r\n+        \"api/*\": {\r\n+            \"cors\": {\r\n+                \"allowMethods\": [\"GET\", \"POST\", \"OPTIONS\"],\r\n+                \"allowOrigins\": [\"https://your-frontend-domain.com\"]\r\n+            }\r\n+        }\r\n+    }\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1738400583539,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,14 +11,6 @@\n           \"headers\": [\r\n             { \"key\": \"Access-Control-Allow-Origin\", \"value\": \"*\" }\r\n           ]\r\n         }  \r\n-    ],\r\n-    \"functions\": {\r\n-        \"api/*\": {\r\n-            \"cors\": {\r\n-                \"allowMethods\": [\"GET\", \"POST\", \"OPTIONS\"],\r\n-                \"allowOrigins\": [\"https://your-frontend-domain.com\"]\r\n-            }\r\n-        }\r\n-    }\r\n+    ]\r\n }\n\\ No newline at end of file\n"
                 }
             ],
             "date": 1738400328541,
