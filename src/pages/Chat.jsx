@@ -14,7 +14,7 @@ export default function Chat() {
     const [messages, setMessages] = useState([]);
     const [loading, setLoading] = useState(false);
 
-    const getContent = (message) => setUserInput(message);
+    const getContent = useCallback((message) => setUserInput(message), []);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
