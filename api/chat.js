@@ -11,6 +11,7 @@ export async function getGroqChatCompletion(content) {
     ],
     model: "llama-3.3-70b-versatile",
     temperature: 1.2,
+    top_p: 1,
   });
 }
 
