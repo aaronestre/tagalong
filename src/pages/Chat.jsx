@@ -16,11 +16,24 @@ export default function Chat() {
 
     const getContent = useCallback((message) => setUserInput(message), []);
 
+    const RECENT_MESSAGES_COUNT = 10;
+
+    const fetchRecentMessages = () => {
+            return messages.length > RECENT_MESSAGES_COUNT 
+            ? messages.slice(-RECENT_MESSAGES_COUNT) 
+            : messages;
+    };
+
     const fetchBotResponse = async (userInput) => { 
+
+        const prompt = "You are an expert/fluent in Tagalog and you are now a tutor. " 
+                + "Using your expertise please help with any questions. Please be clear but concise. " 
+                + "Here are previous messages for context: " + await fetchRecentMessages() 
+                + "Here is the user's input:" + userInput;
 
         try {
             const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/chat`, { 
-                content:  "You are an expert/fluent in tagalog and you are now a tutor. Using your expertise please help with any questions. Please be clear but concise" + userInput,
+                content: prompt
                 }, { 
                 headers: { "Content-Type": "application/json" } });
             console.log(res.data.message);
