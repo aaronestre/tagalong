@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from "@mantine/core";
 import { IconBrandTelegram } from "@tabler/icons-react";
 
-export default function SubmitButton({disabled, content}) {
+export default function SubmitButton({disabled}) {
     return (
         <>
             <Button

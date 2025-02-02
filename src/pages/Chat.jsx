@@ -59,7 +59,7 @@ export default function Chat() {
 
                     <GridCol span={1}></GridCol>
                     <GridCol span={9}>
-                        <ChatInput getContent={getContent}/>
+                        <ChatInput getContent={getContent} value={userInput}/>
                     </GridCol>
                     <GridCol span={1}>
                         <SubmitButton content={"Thinking..."} disabled={loading}/>
