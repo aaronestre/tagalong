@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from "react";
+import { React, useState, useCallback } from "react";
 import { Grid, GridCol, Flex, Loader } from "@mantine/core";
 import axios from "axios";
 
@@ -16,25 +16,33 @@ export default function Chat() {
 
     const getContent = useCallback((message) => setUserInput(message), []);
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+    const fetchBotResponse = async (userInput) => { 
 
-        setMessages((prevMessages) => [...prevMessages, { text: userInput, type: "user" }]);
-        setLoading(true);
         try {
             const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/chat`, { 
                 content:  "You are an expert/fluent in tagalog and you are now a tutor. Using your expertise please help with any questions. Please be clear but concise" + userInput,
                 }, { 
                 headers: { "Content-Type": "application/json" } });
-            setMessages((prevMessages) => [...prevMessages, { text: res.data.message, type: "bot" }]);
             console.log(res.data.message);
+            return res.data.message;
         }
         catch (error) {
             console.error("Error fetching Groq response:", error.response.data);
             setMessages((prevMessages) => [...prevMessages, { text: "An error occurred", type: "bot" }]);
         }
+
+    };
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        setMessages((prevMessages) => [...prevMessages, { text: userInput, type: "user" }]);
+        setLoading(true);
+
+        const botResponse = await fetchBotResponse(userInput);
+        setMessages((prevMessages) => [...prevMessages, { text: botResponse, type: "bot" }]);
+        
         setLoading(false);
-        e.target.reset();
+        setUserInput("");
       };
 
     return (
