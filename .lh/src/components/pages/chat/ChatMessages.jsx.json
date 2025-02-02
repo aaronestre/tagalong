@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 78,
+            "activePatchIndex": 88,
             "patches": [
                 {
                     "date": 1738392412943,
@@ -320,6 +320,46 @@
                 {
                     "date": 1738461010932,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n import { Paper, Text, ScrollArea, Loader } from \"@mantine/core\";\r\n \r\n export default function ChatMessages({ messages, loading }) {\r\n     return (\r\n-        <ScrollArea h=\"100%\">\r\n+        <ScrollArea h=\"100%\" type=\"scroll\">\r\n             <div\r\n                 style={{\r\n                     flex: 1,\r\n                     display: \"flex\",\r\n"
+                },
+                {
+                    "date": 1738462414601,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,9 +43,9 @@\n                             padding=\"md\"\r\n                             shadow=\"lg\"\r\n                             radius=\"lg\"\r\n                             bg=\"#007bff\"\r\n-                            c=\"fff\"\r\n+                            c=\"#343A40\"\r\n                             style={{\r\n                                 alignSelf: \"flex-end\",\r\n                                 maxWidth: \"450px\",\r\n                             }}\r\n"
+                },
+                {
+                    "date": 1738462420179,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,10 +42,10 @@\n                             m=\"10px\"\r\n                             padding=\"md\"\r\n                             shadow=\"lg\"\r\n                             radius=\"lg\"\r\n-                            bg=\"#007bff\"\r\n-                            c=\"#343A40\"\r\n+                            bg=\"##343A40\"\r\n+                            c=\"fff\"\r\n                             style={{\r\n                                 alignSelf: \"flex-end\",\r\n                                 maxWidth: \"450px\",\r\n                             }}\r\n"
+                },
+                {
+                    "date": 1738462425326,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,10 +42,10 @@\n                             m=\"10px\"\r\n                             padding=\"md\"\r\n                             shadow=\"lg\"\r\n                             radius=\"lg\"\r\n-                            bg=\"##343A40\"\r\n-                            c=\"fff\"\r\n+                            bg=\"#343A40\"\r\n+                            c=\"000\"\r\n                             style={{\r\n                                 alignSelf: \"flex-end\",\r\n                                 maxWidth: \"450px\",\r\n                             }}\r\n"
+                },
+                {
+                    "date": 1738462439633,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,10 +42,10 @@\n                             m=\"10px\"\r\n                             padding=\"md\"\r\n                             shadow=\"lg\"\r\n                             radius=\"lg\"\r\n-                            bg=\"#343A40\"\r\n-                            c=\"000\"\r\n+                            bg=\"#007bff\"\r\n+                            c=\"fff\"\r\n                             style={{\r\n                                 alignSelf: \"flex-end\",\r\n                                 maxWidth: \"450px\",\r\n                             }}\r\n"
+                },
+                {
+                    "date": 1738462457839,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -49,9 +49,9 @@\n                                 alignSelf: \"flex-end\",\r\n                                 maxWidth: \"450px\",\r\n                             }}\r\n                         >\r\n-                            <Text p=\"5px 20px\" ta=\"center\" lh=\"1.5\">\r\n+                            <Text p=\"5px 20px\" ta=\"center\" lh=\"1.5\" c=\"fff\">\r\n                                 {msg.text}\r\n                             </Text>\r\n                         </Paper>\r\n                     )\r\n"
+                },
+                {
+                    "date": 1738462478846,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,9 +42,9 @@\n                             m=\"10px\"\r\n                             padding=\"md\"\r\n                             shadow=\"lg\"\r\n                             radius=\"lg\"\r\n-                            bg=\"#007bff\"\r\n+                            bg=\"##343A40\"\r\n                             c=\"fff\"\r\n                             style={{\r\n                                 alignSelf: \"flex-end\",\r\n                                 maxWidth: \"450px\",\r\n"
+                },
+                {
+                    "date": 1738462521349,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,9 +42,9 @@\n                             m=\"10px\"\r\n                             padding=\"md\"\r\n                             shadow=\"lg\"\r\n                             radius=\"lg\"\r\n-                            bg=\"##343A40\"\r\n+                            bg=\"#5BC0DE\"\r\n                             c=\"fff\"\r\n                             style={{\r\n                                 alignSelf: \"flex-end\",\r\n                                 maxWidth: \"450px\",\r\n"
+                },
+                {
+                    "date": 1738462536380,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,9 +42,9 @@\n                             m=\"10px\"\r\n                             padding=\"md\"\r\n                             shadow=\"lg\"\r\n                             radius=\"lg\"\r\n-                            bg=\"#5BC0DE\"\r\n+                            bg=\"#FD7E14\"\r\n                             c=\"fff\"\r\n                             style={{\r\n                                 alignSelf: \"flex-end\",\r\n                                 maxWidth: \"450px\",\r\n"
+                },
+                {
+                    "date": 1738462545130,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,9 +42,9 @@\n                             m=\"10px\"\r\n                             padding=\"md\"\r\n                             shadow=\"lg\"\r\n                             radius=\"lg\"\r\n-                            bg=\"#FD7E14\"\r\n+                            bg=\"#343A40\"\r\n                             c=\"fff\"\r\n                             style={{\r\n                                 alignSelf: \"flex-end\",\r\n                                 maxWidth: \"450px\",\r\n"
+                },
+                {
+                    "date": 1738462557945,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,16 +42,16 @@\n                             m=\"10px\"\r\n                             padding=\"md\"\r\n                             shadow=\"lg\"\r\n                             radius=\"lg\"\r\n-                            bg=\"#343A40\"\r\n+                            bg=\"#007bff\"\r\n                             c=\"fff\"\r\n                             style={{\r\n                                 alignSelf: \"flex-end\",\r\n                                 maxWidth: \"450px\",\r\n                             }}\r\n                         >\r\n-                            <Text p=\"5px 20px\" ta=\"center\" lh=\"1.5\" c=\"fff\">\r\n+                            <Text p=\"5px 20px\" ta=\"center\" lh=\"1.5\">\r\n                                 {msg.text}\r\n                             </Text>\r\n                         </Paper>\r\n                     )\r\n"
                 }
             ],
             "date": 1738392412943,
