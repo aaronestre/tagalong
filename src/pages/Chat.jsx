@@ -1,14 +1,17 @@
 import { React, useState, useCallback } from "react";
-import { Grid, GridCol, Flex, Loader } from "@mantine/core";
+import { Grid, GridCol, Loader } from "@mantine/core";
+import { IconBrandTelegram } from "@tabler/icons-react";
 import axios from "axios";
 
 import ChatInput from "../components/pages/chat/ChatInput";
-import SubmitButton from "../components/common/SubmitButton";
+import Button from "../components/common/Button";
 import ChatMessages from "../components/pages/chat/ChatMessages";
 
 import "../styles/chat.css";
 
 export default function Chat() {
+
+    const submitIcon = <IconBrandTelegram/>
 
     const [userInput, setUserInput] = useState("");
     const [messages, setMessages] = useState([]);
@@ -75,7 +78,7 @@ export default function Chat() {
                         <ChatInput getContent={getContent} value={userInput}/>
                     </GridCol>
                     <GridCol span={1}>
-                        <SubmitButton content={"Thinking..."} disabled={loading}/>
+                        <Button disabled={loading} mainIcon={submitIcon}/>
                     </GridCol>
                     <GridCol span={1}></GridCol>
                 </Grid>
