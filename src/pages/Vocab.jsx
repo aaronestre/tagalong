@@ -1,4 +1,4 @@
-import {React, useState} from "react";
+import {React, useEffect, useState,} from "react";
 import axios from "axios";
 import { Paper, Text, Center, Loader } from "@mantine/core";
 import Button from "../components/common/Button";
@@ -10,6 +10,10 @@ export default function Vocab() {
     const [vocabWord, setVocabWord] = useState({});
     const [loading, setLoading] = useState(false);
     const [isFlipped, setIsFlipped] = useState(false);
+
+    useEffect(() => {
+        handleFetchWord();
+      }, []);
 
     const handleFlip = () => {
         setIsFlipped( (prev) => !prev );
@@ -30,16 +34,10 @@ export default function Vocab() {
         setLoading(false);
     };
 
-    const handleFlipCard = () => {
-
-
-
-    }
-
     return (
         <>
-            <Center display="block" bd="1px solid black">
-                <Paper shadow="0px 0px 20px -4px rgba(0,0,0,0.75)" w="600px" h="300px" m="auto"
+            <div style={{ minHeight: "100vh", border : "1px solid black", width: "100%", display: "inline-flex", flexDirection: "column", alignItems: "center", justifyContent: "center"}}>
+                <Paper mt="-150px"shadow="0px 0px 20px -4px rgba(0,0,0,0.75)" w="600px" h="300px"
                 style={{ display: "flex", alignItems: "center", justifyContent: "center"}}
                 onClick={handleFlip}>
                     {   loading 
@@ -50,9 +48,8 @@ export default function Vocab() {
                     }
                           
                 </Paper>
-                <Button m={"15px auto"} w={"200px"} onClick={handleFetchWord} disabled={loading} text="New Word"></Button>
-            </Center>
-            
+                <Button m={"25px auto"} w={"200px"} onClick={handleFetchWord} disabled={loading} text="New Word"></Button>
+            </div>
         </>
     )
 
