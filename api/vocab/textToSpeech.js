@@ -1,7 +1,12 @@
 import { ElevenLabsClient } from "elevenlabs";
 import microCors from "micro-cors";
 const cors = microCors();
+
 export default async function handler(req, res) {
+
+    if (request.method === 'OPTIONS') {
+        return response.status(200).send('ok');
+      }
 
     const client = new ElevenLabsClient({
         apiKey: process.env.ELEVENLABS_API_KEY,
