@@ -5,7 +5,7 @@ const cors = microCors();
  async function handler(req, res) {
 
     if (req.method === 'OPTIONS') {
-        return response.status(200).end();
+        return res.status(200).end();
     }
 
     const client = new ElevenLabsClient({
