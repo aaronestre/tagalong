@@ -2,6 +2,7 @@ import {React, useEffect, useState,} from "react";
 import axios from "axios";
 import { Paper, Text, Center, Loader } from "@mantine/core";
 import Button from "../components/common/Button";
+import { play } from "elevenlabs";
 
 import "../styles/vocab.css";
 
@@ -34,6 +35,24 @@ export default function Vocab() {
         setLoading(false);
     };
 
+    const handleFetchTextToSpeech = async () => {
+        try {
+            const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/vocab/textToSpeech`,
+                {text: vocabWord.tagalog}, 
+                {responseType: "arraybuffer"}
+            );
+            console.log(res.data);
+
+            const blob = new Blob([res.data], { type: "audio/mpeg" });
+            const url = URL.createObjectURL(blob);
+            const audio = new Audio(url);
+            audio.play();
+        }
+        catch (error) {
+            console.log("Error getting POST response", error);
+        }
+    }
+
     return (
         <>
             <div style={{ minHeight: "100vh", border : "1px solid black", width: "100%", display: "inline-flex", flexDirection: "column", alignItems: "center", justifyContent: "center"}}>
@@ -49,6 +68,7 @@ export default function Vocab() {
                           
                 </Paper>
                 <Button m={"25px auto"} w={"200px"} onClick={handleFetchWord} disabled={loading} text="New Word"></Button>
+                <Button m={"25px auto"} w={"200px"} onClick={handleFetchTextToSpeech} disabled={loading} text="Test TTS"></Button>
             </div>
         </>
     )
