@@ -68,7 +68,7 @@ export default function Vocab() {
                           
                 </Paper>
                 <Button m={"25px auto"} w={"200px"} onClick={handleFetchWord} disabled={loading} text="New Word"></Button>
-                <Button m={"25px auto"} w={"200px"} onClick={handleFetchTextToSpeech} disabled={loading} text="Test TTS"></Button>
+                <Button w={"200px"} onClick={handleFetchTextToSpeech} disabled={loading} text="Listen"></Button>
             </div>
         </>
     )
