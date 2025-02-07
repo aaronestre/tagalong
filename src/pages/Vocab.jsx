@@ -55,7 +55,7 @@ export default function Vocab() {
 
     return (
         <>
-            <div style={{ minHeight: "100vh", border : "1px solid black", width: "100%", display: "inline-flex", flexDirection: "column", alignItems: "center", justifyContent: "center"}}>
+            <div style={{ minHeight: "100vh", width: "100%", display: "inline-flex", flexDirection: "column", alignItems: "center", justifyContent: "center"}}>
                 <Paper mt="-150px"shadow="0px 0px 20px -4px rgba(0,0,0,0.75)" w="600px" h="300px"
                 style={{ display: "flex", alignItems: "center", justifyContent: "center"}}
                 onClick={handleFlip}>
