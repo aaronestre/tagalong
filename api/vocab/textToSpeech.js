@@ -25,14 +25,6 @@ const cors = microCors();
             chunks.push(chunk);
         }
         const audioBuffer = Buffer.concat(chunks);
-
-        res.setHeader('Access-Control-Allow-Credentials', true)
-        res.setHeader('Access-Control-Allow-Origin', '*')
-        res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT')
-        res.setHeader(
-            'Access-Control-Allow-Headers',
-            'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
-        )
         res.setHeader("Content-Type", "audio/mpeg");
         res.setHeader("Content-Length", audioBuffer.length);
         res.setHeader("Content-Disposition", 'inline; filename="tts-audio.mp3"');
