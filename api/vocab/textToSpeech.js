@@ -6,9 +6,10 @@ export default async function handler(req, res) {
     });
 
     try {
+        const {text} = req.body;
         const audio = await client.textToSpeech.convert("JBFqnCBsd6RMkjVDRZzb", {
             output_format: "mp3_44100_128",
-            text: req.body.text,
+            text: text,
             model_id: "eleven_multilingual_v2"
         });
         
