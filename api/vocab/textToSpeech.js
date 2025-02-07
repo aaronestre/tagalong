@@ -1,4 +1,6 @@
 import { ElevenLabsClient } from "elevenlabs";
+import microCors from "micro-cors";
+const cors = microCors();
 export default async function handler(req, res) {
 
     const client = new ElevenLabsClient({
