@@ -6,7 +6,8 @@ import axios from "axios";
 import ChatInput from "../components/pages/chat/ChatInput";
 import Button from "../components/common/Button";
 import ChatMessages from "../components/pages/chat/ChatMessages";
-import { fetchBotResponse } from "../api/chatApi";
+
+import useChat from "../hooks/useChat";
 
 import "../styles/chat.css";
 
@@ -14,33 +15,7 @@ export default function Chat() {
 
     const submitIcon = <IconBrandTelegram/>
 
-    const [userInput, setUserInput] = useState("");
-    const [messages, setMessages] = useState([]);
-    const [loading, setLoading] = useState(false);
-
-    const getContent = useCallback((message) => setUserInput(message), []);
-
-    const RECENT_MESSAGES_COUNT = 10;
-
-    const fetchRecentMessages = () => {
-            return messages.length > RECENT_MESSAGES_COUNT 
-            ? messages.slice(-RECENT_MESSAGES_COUNT) 
-            : messages;
-    };
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-
-        setMessages((prevMessages) => [...prevMessages, { text: userInput, type: "user" }]);
-        setLoading(true);
-
-        const recentMessages = fetchRecentMessages();
-        const botResponse = await fetchBotResponse(userInput, recentMessages);
-        setMessages((prevMessages) => [...prevMessages, { text: botResponse, type: "bot" }]);
-        
-        setLoading(false);
-        setUserInput("");
-      };
+    const {userInput, messages, loading, getContent, handleSubmit} = useChat();
 
     return (
         <>
