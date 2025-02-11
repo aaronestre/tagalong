@@ -6,6 +6,7 @@ import axios from "axios";
 import ChatInput from "../components/pages/chat/ChatInput";
 import Button from "../components/common/Button";
 import ChatMessages from "../components/pages/chat/ChatMessages";
+import { fetchBotResponse } from "../api/ChatAPI";
 
 import "../styles/chat.css";
 
@@ -27,34 +28,14 @@ export default function Chat() {
             : messages;
     };
 
-    const fetchBotResponse = async (userInput) => { 
-
-        const prompt = "You are an expert/fluent in Tagalog and you are now a tutor. " 
-                + "Using your expertise please help with any questions. Please be clear but concise. " 
-                + "Here are previous messages for context: " + await fetchRecentMessages() 
-                + "Here is the user's input:" + userInput;
-
-        try {
-            const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/chat`, { 
-                content: prompt
-                }, { 
-                headers: { "Content-Type": "application/json" } });
-            console.log(res.data.message);
-            return res.data.message;
-        }
-        catch (error) {
-            console.error("Error fetching Groq response:", error.response.data);
-            setMessages((prevMessages) => [...prevMessages, { text: "An error occurred", type: "bot" }]);
-        }
-
-    };
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         setMessages((prevMessages) => [...prevMessages, { text: userInput, type: "user" }]);
         setLoading(true);
 
-        const botResponse = await fetchBotResponse(userInput);
+        const recentMessages = fetchRecentMessages();
+        const botResponse = await fetchBotResponse(userInput, recentMessages);
         setMessages((prevMessages) => [...prevMessages, { text: botResponse, type: "bot" }]);
         
         setLoading(false);
