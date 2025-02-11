@@ -6,7 +6,7 @@ import axios from "axios";
 import ChatInput from "../components/pages/chat/ChatInput";
 import Button from "../components/common/Button";
 import ChatMessages from "../components/pages/chat/ChatMessages";
-import { fetchBotResponse } from "../api/ChatAPI";
+import { fetchBotResponse } from "../api/chatApi";
 
 import "../styles/chat.css";
 
