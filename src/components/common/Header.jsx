@@ -42,7 +42,7 @@ function Header({ opened, toggle }) {
                 >
                     <a href={homePage}>Tagalong</a>
                 </Text>
-                <Button size="sm" variant="link" onClick={toggleColorScheme}>
+                <Button size="sm" variant="filled" color={computedColorScheme === "dark" ? "orange" : "grey"} onClick={toggleColorScheme}>
                     {computedColorScheme === "dark" ? (
                         <IconMoon />
                     ) : (
