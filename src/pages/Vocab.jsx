@@ -1,57 +1,20 @@
 import {React, useEffect, useState,} from "react";
-import axios from "axios";
-import { Paper, Text, Center, Loader } from "@mantine/core";
+import { Paper, Text, Loader } from "@mantine/core";
 import Button from "../components/common/Button";
-import { play } from "elevenlabs";
 
 import "../styles/vocab.css";
+import { handleFetchWord, handleFetchTextToSpeech } from "../api/vocabApi";
+import useVocab from "../hooks/useVocab";
 
 export default function Vocab() {
 
-    const [vocabWord, setVocabWord] = useState({});
-    const [loading, setLoading] = useState(false);
-    const [isFlipped, setIsFlipped] = useState(false);
+    const {vocabWord, setVocabWord, loading, setLoading, isFlipped, setIsFlipped, handleFlip} = useVocab();
 
     useEffect(() => {
-        handleFetchWord();
+        handleFetchWord(isFlipped, setIsFlipped, setLoading, setVocabWord);
       }, []);
 
-    const handleFlip = () => {
-        setIsFlipped( (prev) => !prev );
-    }
-
-    const handleFetchWord = async () => {
-        setLoading(true);
-        if ( isFlipped ) {
-            setIsFlipped(false);
-        }
-        try {
-            const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/vocab/fetchRandomWord`);
-            console.log(res.data.word[0]);
-            setVocabWord(res.data.word[0]);
-        } catch (error) {
-            console.log("Error getting POST response", error);
-        }
-        setLoading(false);
-    };
-
-    const handleFetchTextToSpeech = async () => {
-        try {
-            const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/vocab/textToSpeech`,
-                {text: vocabWord.tagalog}, 
-                {responseType: "arraybuffer"}
-            );
-            console.log(res.data);
-
-            const blob = new Blob([res.data], { type: "audio/mpeg" });
-            const url = URL.createObjectURL(blob);
-            const audio = new Audio(url);
-            audio.play();
-        }
-        catch (error) {
-            console.log("Error getting POST response", error);
-        }
-    }
+    
 
     return (
         <>
@@ -67,7 +30,7 @@ export default function Vocab() {
                     }
                           
                 </Paper>
-                <Button m={"25px auto"} w={"200px"} onClick={handleFetchWord} disabled={loading} text="New Word"></Button>
+                <Button m={"25px auto"} w={"200px"} onClick={() => handleFetchWord(isFlipped, setIsFlipped, setLoading, setVocabWord)} disabled={loading} text="New Word"></Button>
                 <Button w={"200px"} onClick={handleFetchTextToSpeech} disabled={loading} text="Listen"></Button>
             </div>
         </>
