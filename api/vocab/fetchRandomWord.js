@@ -6,6 +6,8 @@ export async function getTotalRows() {
     if ( error ) { 
         console.log("There was an error fetching total rows", error);
     }
+
+    console.log("Rows: ",count);
     return count;
 
 }
@@ -17,9 +19,28 @@ export default async function handler(req, res) {
     }
 
     try {
+        
         const totalRows = await getTotalRows();
-        const randomRow = Math.floor(Math.random() * totalRows) + 1;
-        const { data, error } = await supabase.from("vocabulary_words").select("*").eq("id", randomRow);
+        let randomRow;
+        let data = null;
+        let error = null;
+        do {
+            randomRow = Math.floor(Math.random() * totalRows) + 1;
+            console.log("Random row: ", randomRow);
+            const { data: rowData, error } = await supabase
+                .from("vocabulary_words")
+                .select("*")
+                .eq("id", randomRow)
+                .single();
+
+            console.log(rowData);
+            if ( rowData ) {
+                data = rowData;
+            }
+        }
+        while ( !data )
+
+        console.log(data);
         if ( error ) {
             console.log("There was an error retreiving random word", error);
         }
