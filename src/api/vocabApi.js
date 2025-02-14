@@ -1,7 +1,7 @@
 import axios from "axios";
 
-export const handleFetchWord = async (isFlipped, setIsFlipped, setLoading, setVocabWord) => {
-    setLoading(true);
+export const handleFetchWord = async (isFlipped, setIsFlipped, setLoadingWord, setVocabWord) => {
+    setLoadingWord(true);
     if ( isFlipped ) {
         setIsFlipped(false);
     }
@@ -13,11 +13,12 @@ export const handleFetchWord = async (isFlipped, setIsFlipped, setLoading, setVo
         console.log("Error getting POST response", error);
     }
     finally {
-        setLoading(false);
+        setLoadingWord(false);
     }
 };
 
-export const handleFetchTextToSpeech = async () => {
+export const handleFetchTextToSpeech = async (vocabWord, setLoadingTTS) => {
+    setLoadingTTS(true);
     try {
         const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/vocab/textToSpeech`,
             {text: vocabWord.tagalog}, 
@@ -32,5 +33,8 @@ export const handleFetchTextToSpeech = async () => {
     }
     catch (error) {
         console.log("Error getting POST response", error);
+    }
+    finally {
+        setLoadingTTS(false);
     }
 }
