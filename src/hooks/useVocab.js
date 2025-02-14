@@ -8,7 +8,6 @@ export default function useVocab() {
 
     const handleFlip = () => {
         setIsFlipped((prev) => !prev);
-        console.log(isFlipped);
     };
 
     return {vocabWord, setVocabWord, loadingWord, setLoadingWord, loadingTTS, setLoadingTTS, isFlipped, setIsFlipped, handleFlip};

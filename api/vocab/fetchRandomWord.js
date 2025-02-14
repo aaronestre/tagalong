@@ -1,4 +1,4 @@
-import supabase from "../../src/supabase-client.js";
+import supabase from "../../src/api/supabase-client.js";
 
 export async function getTotalRows() {
 
